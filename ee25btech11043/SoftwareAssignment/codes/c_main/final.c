@@ -6,6 +6,7 @@ double **new(int r, int c) {
     
     double **m = malloc(r * sizeof(double *));
     for (int i = 0; i < r; i++)
+        
         m[i] = calloc(c, sizeof(double));
     
     return m;
@@ -34,6 +35,7 @@ double **product(double **A, double **B, int r, int p, int c) {
 
     
     double **R = new(r, c);
+    
     for (int i = 0; i < r; i++) {
         
         for (int j = 0; j < c; j++) {
@@ -55,12 +57,15 @@ void jacobi(double **M, int n, double *eval, double **V) {
             V[i][j] = (i == j);
 
     for (int it = 0; it < 100; it++) {
+        
         double mx = 0;
         
         int p = -2;
         int q = -2;
         for (int i = 0; i < n; i++)
+            
             for (int j = i + 1; j < n; j++)
+                
                 if (fabs(M[i][j]) > mx) {
                     mx = fabs(M[i][j]);
                     p = i;
@@ -77,28 +82,29 @@ void jacobi(double **M, int n, double *eval, double **V) {
         
         //finding angle
         double ang = 0.5 * atan2(2 * bpq, (bqq - bpp));
-        double c = cos(ang);
+            double c = cos(ang);
         double s = sin(ang);
 
         for (int i = 0; i < n; i++) {
-            if (i == p || i == q) 
+             if (i == p || i == q) 
             continue;
             double mip = M[i][p];
             double miq = M[i][q];
             
-            M[i][p] = c * mip + s * miq;
+              M[i][p] = c * mip + s * miq;
             
-            M[p][i] = M[i][p];
+              M[p][i] = M[i][p];
             M[i][q] = -s * mip + c * miq;
-            M[q][i] = M[i][q];
+              M[q][i] = M[i][q];
         }
 
         M[p][p] = c * c * bpp + 2 * s * c * bpq + s * s * bqq;
-        M[q][q] = s * s * bpp - 2 * s * c * bpq + c * c * bqq;
+           M[q][q] = s * s * bpp - 2 * s * c * bpq + c * c * bqq;
         M[p][q] = M[q][p] = 0;
 
-        for (int i = 0; i < n; i++) {
+          for (int i = 0; i < n; i++) {
             double vip = V[i][p], viq = V[i][q];
+              
             
             V[i][p] = c * vip + s * viq;
             
@@ -112,11 +118,12 @@ void jacobi(double **M, int n, double *eval, double **V) {
 
 void sort(double *eval, double **V, int n) {
     for (int i = 0; i < n - 1; i++)
-        for (int j = i + 1; j < n; j++)
+  for (int j = i + 1; j < n; j++)
             if (eval[j] > eval[i]) {
                 
                 double t = eval[i];
                 eval[i] = eval[j];
+                
                 
                 eval[j] = t;
                 for (int k = 0; k < n; k++) {
@@ -131,6 +138,7 @@ void sort(double *eval, double **V, int n) {
 
 //for genrating U matrix
 double **Umat(double **A, int r, int c, double **V, double *s) {
+    
     double **U = new(r, c);
     for (int j = 0; j < c; j++) {
         for (int i = 0; i < r; i++) {
@@ -148,6 +156,7 @@ double **Umat(double **A, int r, int c, double **V, double *s) {
 
 //making Ak matrix
 double **form(double **U, double *s, double **V, int r, int c, int k) {
+    
     double **R = new(r, c);
     
     for (int t = 0; t < k; t++) {
@@ -163,9 +172,11 @@ double **form(double **U, double *s, double **V, int r, int c, int k) {
 
 
 double **read(char *name, int *r, int *c, int *maxv) {
+    
     FILE *fp = fopen(name, "r");
     if (!fp) {
         printf("Cannot open file %s\n", name);
+        
         return 0;
     }
     
@@ -174,6 +185,7 @@ double **read(char *name, int *r, int *c, int *maxv) {
 
     int ch = fgetc(fp);
     while (ch == '#') {
+        
         while (fgetc(fp) != '\n');
         ch = fgetc(fp);
     }
@@ -184,6 +196,7 @@ double **read(char *name, int *r, int *c, int *maxv) {
 
     
     double **A = new(*r, *c);
+    
     for (int i = 0; i < *r; i++)
         
         for (int j = 0; j < *c; j++) {
@@ -192,10 +205,11 @@ double **read(char *name, int *r, int *c, int *maxv) {
             A[i][j] = v;
         }
     fclose(fp);
+    
     return A;
 }
 
-//for genrating U matrix
+//for U matrix
 void generate(char *name, double **A, int r, int c, int maxv) {
     
     FILE *fp = fopen(name, "w");
@@ -229,6 +243,7 @@ int main() {
 
     for (int i = 0; i < r; i++)
         for (int j = 0; j < c; j++)
+            
             A[i][j] /= maxp;
 
     double **At = transpose(A, r, c);
@@ -237,7 +252,10 @@ int main() {
     double **AtA = product(At, A, c, r, c);
 
     double *eval = malloc(c * sizeof(double));
+
+
     double **V = new(c, c);
+
     jacobi(AtA, c, eval, V);
     sort(eval, V, c);
 
@@ -245,6 +263,7 @@ int main() {
 
         
     for (int i = 0; i < c; i++) {
+        
     if (eval[i] > 0)
         s[i] = sqrt(eval[i]);
     else
@@ -255,8 +274,10 @@ int main() {
 
     int k;
     printf("Enter k: ");
+        
     scanf("%d", &k);
     if (k < 1) 
+        
     k = 1;
     if (k > c) 
     k = c;
@@ -278,19 +299,26 @@ int main() {
     double diff = 0;
     for (int i = 0; i < r; i++)
         for (int j = 0; j < c; j++) {
+            
             double d = A[i][j] * maxp - A2[i][j];
+            
             diff += d * d;
         }
     printf("Frobenius error = %.3f\n", sqrt(diff));
 
     generate("out.pgm", A2, r, c, maxp);
+        
     f(A, r);
     f(U, r);
+        
     f(At, c);
+        
     f(AtA, c);
     f(V, c);
+        
     f(A2, r);
     free(eval);
+        
     free(s);
     return 0;
 }
