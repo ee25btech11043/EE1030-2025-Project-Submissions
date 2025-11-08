@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.3.15)  8 NOV 2025 22:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.3.15)  8 NOV 2025 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1935,8 +1935,44 @@ LaTeX Font Info:    Trying to load font information for OT1+txr on input line 4
 (/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/txfonts/ot1
 txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
+) (./main.aux
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
+
+LaTeX Warning: Label `fig:q39' multiply defined.
+
 )
-No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 42.
@@ -2128,6 +2164,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 42.
+ (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -2233,153 +2270,76 @@ File: figs/einstein.jpg Graphic file (type jpg)
 <use figs/einstein.jpg>
 Package pdftex.def Info: figs/einstein.jpg  used on input line 263.
 (pdftex.def)             Requested size: 182.09764pt x 178.18857pt.
+<figs/einstein20.jpg, id=85, 186.6975pt x 182.6825pt>
+File: figs/einstein20.jpg Graphic file (type jpg)
+<use figs/einstein20.jpg>
+Package pdftex.def Info: figs/einstein20.jpg  used on input line 271.
+(pdftex.def)             Requested size: 182.09764pt x 178.18857pt.
+<figs/einstein50.jpg, id=86, 186.6975pt x 182.6825pt>
+File: figs/einstein50.jpg Graphic file (type jpg)
+<use figs/einstein50.jpg>
+Package pdftex.def Info: figs/einstein50.jpg  used on input line 278.
+(pdftex.def)             Requested size: 182.09764pt x 178.18857pt.
 
-LaTeX Warning: File `figs/einstein20.png' not found on input line 271.
-
-
-! Package pdftex.def Error: File `figs/einstein20.png' not found: using draft s
-etting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.271 ...dth=0.5\columnwidth]{figs/einstein20.png}
-                                                  
-? 
-LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 
-271.
-
-(/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/txfonts/ot1
-txtt.fd
-File: ot1txtt.fd 2000/12/15 v3.1
-)
-
-LaTeX Warning: File `figs/einstein50.png' not found on input line 278.
+Underfull \vbox (badness 1231) has occurred while \output is active []
 
 
-! Package pdftex.def Error: File `figs/einstein50.png' not found: using draft s
-etting.
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.278 ...dth=0.5\columnwidth]{figs/einstein50.png}
-                                                  
-? 
-
-
-[5 <./figs/einstein.jpg>]
-
-LaTeX Warning: File `figs/einstein100.png' not found on input line 285.
-
-
-! Package pdftex.def Error: File `figs/einstein100.png' not found: using draft 
-setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.285 ...th=0.5\columnwidth]{figs/einstein100.png}
-                                                  
-? 
-
-LaTeX Warning: File `figs/einstein180.png' not found on input line 292.
-
-
-! Package pdftex.def Error: File `figs/einstein180.png' not found: using draft 
-setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.292 ...th=0.5\columnwidth]{figs/einstein180.png}
-                                                  
-? 
+[5 <./figs/einstein.jpg> <./figs/einstein20.jpg>]
+<figs/einstein100.jpg, id=95, 186.6975pt x 182.6825pt>
+File: figs/einstein100.jpg Graphic file (type jpg)
+<use figs/einstein100.jpg>
+Package pdftex.def Info: figs/einstein100.jpg  used on input line 285.
+(pdftex.def)             Requested size: 182.09764pt x 178.18857pt.
+<figs/einstein180.jpg, id=96, 186.6975pt x 182.6825pt>
+File: figs/einstein180.jpg Graphic file (type jpg)
+<use figs/einstein180.jpg>
+Package pdftex.def Info: figs/einstein180.jpg  used on input line 292.
+(pdftex.def)             Requested size: 182.09764pt x 178.18857pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[6]
-<figs/globe.jpg, id=102, 843.15pt x 882.29625pt>
+[6 <./figs/einstein50.jpg> <./figs/einstein100.jpg>]
+<figs/globe.jpg, id=105, 843.15pt x 882.29625pt>
 File: figs/globe.jpg Graphic file (type jpg)
 <use figs/globe.jpg>
 Package pdftex.def Info: figs/globe.jpg  used on input line 301.
 (pdftex.def)             Requested size: 182.09764pt x 190.5516pt.
-
-
-LaTeX Warning: File `figs/globe200.png' not found on input line 309.
-
-
-! Package pdftex.def Error: File `figs/globe200.png' not found: using draft set
-ting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.309 ...width=0.5\columnwidth]{figs/globe200.png}
-                                                  
-? 
+<figs/globe200.jpg, id=106, 843.15pt x 882.29625pt>
+File: figs/globe200.jpg Graphic file (type jpg)
+<use figs/globe200.jpg>
+Package pdftex.def Info: figs/globe200.jpg  used on input line 309.
+(pdftex.def)             Requested size: 182.09764pt x 190.5516pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[7 <./figs/globe.jpg>]
-
-LaTeX Warning: File `figs/globe400.png' not found on input line 315.
-
-
-! Package pdftex.def Error: File `figs/globe400.png' not found: using draft set
-ting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.315 ...width=0.5\columnwidth]{figs/globe400.png}
-                                                  
-? 
-
-LaTeX Warning: File `figs/globe600.png' not found on input line 322.
-
-
-! Package pdftex.def Error: File `figs/globe600.png' not found: using draft set
-ting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.322 ...width=0.5\columnwidth]{figs/globe600.png}
-                                                  
-? 
+[7 <./figs/einstein180.jpg> <./figs/globe.jpg>]
+<figs/globe400.jpg, id=115, 843.15pt x 882.29625pt>
+File: figs/globe400.jpg Graphic file (type jpg)
+<use figs/globe400.jpg>
+Package pdftex.def Info: figs/globe400.jpg  used on input line 315.
+(pdftex.def)             Requested size: 182.09764pt x 190.5516pt.
+<figs/globe600.jpg, id=116, 843.15pt x 882.29625pt>
+File: figs/globe600.jpg Graphic file (type jpg)
+<use figs/globe600.jpg>
+Package pdftex.def Info: figs/globe600.jpg  used on input line 322.
+(pdftex.def)             Requested size: 182.09764pt x 190.5516pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[8]
-
-LaTeX Warning: File `figs/globe800.png' not found on input line 329.
-
-
-! Package pdftex.def Error: File `figs/globe800.png' not found: using draft set
-ting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.329 ...width=0.5\columnwidth]{figs/globe800.png}
-                                                  
-? 
-<figs/greyscale.png, id=119, 1027.84pt x 1027.84pt>
+[8 <./figs/globe200.jpg> <./figs/globe400.jpg>]
+<figs/globe800.jpg, id=125, 843.15pt x 882.29625pt>
+File: figs/globe800.jpg Graphic file (type jpg)
+<use figs/globe800.jpg>
+Package pdftex.def Info: figs/globe800.jpg  used on input line 329.
+(pdftex.def)             Requested size: 182.09764pt x 190.5516pt.
+<figs/greyscale.png, id=126, 1027.84pt x 1027.84pt>
 File: figs/greyscale.png Graphic file (type png)
 <use figs/greyscale.png>
 Package pdftex.def Info: figs/greyscale.png  used on input line 338.
@@ -2389,82 +2349,46 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[9]
-
-LaTeX Warning: File `figs/greyscale400.png' not found on input line 346.
-
-
-! Package pdftex.def Error: File `figs/greyscale400.png' not found: using draft
- setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.346 ...h=0.5\columnwidth]{figs/greyscale400.png}
-                                                  
-? 
-
-LaTeX Warning: File `figs/greyscale600.png' not found on input line 352.
-
-
-! Package pdftex.def Error: File `figs/greyscale600.png' not found: using draft
- setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.352 ...h=0.5\columnwidth]{figs/greyscale600.png}
-                                                  
-? 
+[9 <./figs/globe600.jpg> <./figs/globe800.jpg>]
+<figs/greyscale400.jpg, id=134, 1027.84pt x 1027.84pt>
+File: figs/greyscale400.jpg Graphic file (type jpg)
+<use figs/greyscale400.jpg>
+Package pdftex.def Info: figs/greyscale400.jpg  used on input line 346.
+(pdftex.def)             Requested size: 182.09764pt x 182.08607pt.
+<figs/greyscale600.jpg, id=135, 1027.84pt x 1027.84pt>
+File: figs/greyscale600.jpg Graphic file (type jpg)
+<use figs/greyscale600.jpg>
+Package pdftex.def Info: figs/greyscale600.jpg  used on input line 352.
+(pdftex.def)             Requested size: 182.09764pt x 182.08607pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[10 <./figs/greyscale.png (PNG copy)>]
-
-LaTeX Warning: File `figs/greyscale800.png' not found on input line 359.
-
-
-! Package pdftex.def Error: File `figs/greyscale800.png' not found: using draft
- setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.359 ...h=0.5\columnwidth]{figs/greyscale800.png}
-                                                  
-? 
-
-LaTeX Warning: File `figs/greyscale1000.png' not found on input line 366.
-
-
-! Package pdftex.def Error: File `figs/greyscale1000.png' not found: using draf
-t setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.366 ...=0.5\columnwidth]{figs/greyscale1000.png}
-                                                  
-? 
+[10 <./figs/greyscale.png (PNG copy)> <./figs/greyscale400.jpg>]
+<figs/greyscale800.jpg, id=144, 1027.84pt x 1027.84pt>
+File: figs/greyscale800.jpg Graphic file (type jpg)
+<use figs/greyscale800.jpg>
+Package pdftex.def Info: figs/greyscale800.jpg  used on input line 359.
+(pdftex.def)             Requested size: 182.09764pt x 182.08607pt.
+<figs/greyscale1000.jpg, id=145, 1027.84pt x 1027.84pt>
+File: figs/greyscale1000.jpg Graphic file (type jpg)
+<use figs/greyscale1000.jpg>
+Package pdftex.def Info: figs/greyscale1000.jpg  used on input line 366.
+(pdftex.def)             Requested size: 182.09764pt x 182.08607pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[11]
+[11 <./figs/greyscale600.jpg> <./figs/greyscale800.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 442--447
 
  []
 
 
 
-[12]
+[12 <./figs/greyscale1000.jpg>]
 
 [13] (./main.aux)
  ***********
@@ -2473,23 +2397,17 @@ L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 54910 strings out of 473190
- 1323221 string characters out of 5704335
- 1879488 words of memory out of 5000000
- 77272 multiletter control sequences out of 15000+600000
- 624327 words of font info for 170 fonts, out of 8000000 for 9000
+ 54609 strings out of 473190
+ 1314366 string characters out of 5704335
+ 1879727 words of memory out of 5000000
+ 76969 multiletter control sequences out of 15000+600000
+ 624051 words of font info for 169 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  109i,9n,109p,1194b,1262s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/
@@ -2498,15 +2416,14 @@ s/type1/public/txfonts/rtxmi.pfb></opt/homebrew/Cellar/texlive/20250308_1/share
 /texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></opt/homebrew/Cellar/texlive/2
 0250308_1/share/texmf-dist/fonts/type1/public/txfonts/txex.pfb></opt/homebrew/C
 ellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txfonts/txsy.pfb><
-/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/public/txf
-onts/txtt.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/t
-ype1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-
-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20250308_1/
-share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (13 pages, 1109345 bytes).
+/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type1/urw/times/
+utmb8a.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (13 pages, 1588790 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
+ 225 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
  75 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 words of extra memory for PDF output out of 10000 (max. 10000000)
 
