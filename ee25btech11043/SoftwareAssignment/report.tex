@@ -445,6 +445,72 @@ A smaller \(k\) gives higher compression but results in loss of fine details and
 A larger \(k\) preserves more detail and improves image quality, but requires more storage.  
 Thus, \(k\) balances between quality and compression efficiency.\\
 
+
+\textbf{Run time and Accuracy}
+
+\begin{enumerate}
+
+\item For einstein.pgm 
+(run time = 0.003)
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{k value} & \textbf{Accuracy in percentage } \\  
+        \hline
+        10 & 85.10 \\                              
+        \hline
+        50 & 95.96 \\                         
+        \hline
+        100 & 99.24 \\       
+        \hline
+    \end{tabular}
+       \label{tab:1}
+\end{table}
+
+\item For globe.pgm
+(runtime = 0.052)
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{k value} & \textbf{Accuracy} \\  
+        \hline
+        10 & 90.49 \\                              
+        \hline
+        50 & 96.09 \\                         
+        \hline
+        100 & 97.68\\       
+        \hline
+    \end{tabular}
+    \label{tab:2}
+\end{table}
+
+\item For greyscale.pgm
+(runtime = 0.12)
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{k value} & \textbf{Accuracy} \\  
+     \hline
+        10 & 96.29 \\                              
+        \hline
+        50 & 99.39 \\                         
+        \hline
+        100 & 99.70 \\       
+        \hline
+    \end{tabular}
+    \label{tab:3}
+\end{table}
+
+\end{enumerate}
+
+
+
+
+
+
 \textbf{Conclusion}\\
 The project successfully implemented image compression using the truncated SVD with the Jacobian method.  
 
