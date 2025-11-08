@@ -15,6 +15,7 @@ void f(double **m, int r) {
     free(m);
 }
 
+// transpose
 double **transpose(double **a, int r, int c) {
     double **t = new(c, r);
     for (int i = 0; i < r; i++)
@@ -23,6 +24,7 @@ double **transpose(double **a, int r, int c) {
     return t;
 }
 
+//product of two matrix
 double **product(double **A, double **B, int r, int p, int c) {
     double **R = new(r, c);
     for (int i = 0; i < r; i++) {
@@ -59,6 +61,8 @@ void jacobi(double **M, int n, double *eval, double **V) {
         double bpp = M[p][p];
         double bqq = M[q][q];
         double bpq = M[p][q];
+        
+        //finding angle
         double ang = 0.5 * atan2(2 * bpq, (bqq - bpp));
         double c = cos(ang);
         double s = sin(ang);
@@ -104,19 +108,21 @@ void sort(double *eval, double **V, int n) {
             }
 }
 
+//for genrating U matrix
 double **Umat(double **A, int r, int c, double **V, double *s) {
     double **U = new(r, c);
     for (int j = 0; j < c; j++) {
         for (int i = 0; i < r; i++) {
             double sm = 0;
             for (int t = 0; t < c; t++)
-                sm += A[i][t] * V[t][j];
+                sm = sm + A[i][t] * V[t][j];
             U[i][j] = (s[j] > 1e-10) ? sm / s[j] : 0;
         }
     }
     return U;
 }
 
+//making Ak matrix
 double **form(double **U, double *s, double **V, int r, int c, int k) {
     double **R = new(r, c);
     for (int t = 0; t < k; t++) {
@@ -129,14 +135,15 @@ double **form(double **U, double *s, double **V, int r, int c, int k) {
     return R;
 }
 
+
 double **read(char *name, int *r, int *c, int *maxv) {
     FILE *fp = fopen(name, "r");
     if (!fp) {
         printf("Cannot open file %s\n", name);
         return 0;
     }
-    char type[3];
-    fscanf(fp, "%2s", type);
+    char ty[3];
+    fscanf(fp, "%2s", ty);
 
     int ch = fgetc(fp);
     while (ch == '#') {
@@ -158,6 +165,7 @@ double **read(char *name, int *r, int *c, int *maxv) {
     return A;
 }
 
+//for genrating U matrix
 void generate(char *name, double **A, int r, int c, int maxv) {
     FILE *fp = fopen(name, "w");
     fprintf(fp, "P2\n%d %d\n%d\n", c, r, maxv);
