@@ -1,0 +1,451 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm, onecolumn]{geometry}
+\usepackage{lmodern}
+\usepackage{tfrupee}
+\setlength{\headheight}{1cm}
+\setlength{\headsep}{0mm}
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide}
+\usepackage{listings}
+\def\inputGnumericTable{}
+\usepackage[latin1]{inputenc}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\usepackage{lscape}
+\usepackage{xparse}
+
+\bibliographystyle{IEEEtran}
+
+\title{Software Project - Report}
+\author{EE25BTECH11043 - Nishid Khandagre}
+
+\begin{document}
+\maketitle
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+
+\textbf{Summary of Strang's Video}
+
+
+Every matrix $A$ can be expressed as:
+\[
+A = U \Sigma V^T
+\]
+where $U$ and $V$ are orthogonal matrices whose columns are orthonormal vectors,\\
+$\Sigma$ is a diagonal matrix with entries $\sigma_i$ called the \textbf{singular values}.
+
+\[
+A^T A = V (\Sigma^T \Sigma) V^T
+\]
+\[
+A A^T = U (\Sigma \Sigma^T) U^T
+\]
+
+
+\textbf{Properties}
+\begin{itemize}
+    \item $A v_i = \sigma_i u_i$
+    \item The column vectors $v_i$ are eigenvectors of $A^T A$:
+    \item The column vectors $u_i$ are eigenvectors of $A A^T$ :
+\end{itemize}
+
+\textbf{Algorithm Used: Jacobian}
+
+
+The Jacobian method is an iterative algorithm for computing the Singular Value Decomposition (SVD) of a matrix $\vec{A}$.\\
+It applies rotations to eliminate off-diagonal elements of \(A^T A \), and converting it into a diagonal matrix. The diagonal elements of the obtained diagonal matrix represent the square of the singular values of \( A \).
+
+
+\[
+A=U \Sigma V^T
+\]
+\[
+A^T A = V \Sigma^T\Sigma V^T
+\]
+\[
+U = A V \Sigma^{-1}
+\]
+Here, \( V \) and \( U \) are orthogonal matrices containing right and left singular vectors, and \( \Sigma \) is the diagonal matrix of singular values.
+
+\textbf{Explanation}
+
+\begin{enumerate}
+\item \textbf{Form the symmetric matrix}
+
+\[
+M = A^T A
+\] 
+    \item \textbf{Find the largest off-diagonal element}  \\
+    Identify indices \( (p, q) \) for the largest off-diagonal element where \( p < q \).
+    
+    Using this element we will find the angle.
+
+    \item \textbf{Calculate the rotation angle}\\
+    The rotation angle \( \theta \) is chosen such that the new matrix has
+    a zero at position \( (p, q) \)
+    \[
+    \tan(2\theta) = \frac{2M_{pq}}{M_{qq} - M_{pp}}
+    \]
+    Then
+    \[
+    c = \cos(\theta), \qquad s = \sin(\theta)
+    \]
+
+    \item \textbf{Form the orthogonal rotation matrix \( S \)} \\ 
+    Construct an identity matrix and modify the four elements
+    corresponding to indices \( (p, q) \):
+    \[
+    S_{pp} = S_{qq} = c , \quad S_{pq} = s, \quad S_{qp} = -s
+    \]
+    All other diagonal entries are 1 and the rest are 0.
+
+    \item \textbf{Find the transformation matrix} 
+    \[
+    R = S^T M S
+    \]
+    By This operation the off-diagonal term \( M_{pq} \) placed at (p,q) becomes zero in $R$.\\
+
+    \item \textbf{Iterate}  \\
+    Repeat steps 1 to 4 for different pairs \( (p, q) \) until all off-diagonal elements become small or zero 
+
+    \item \textbf{Obtain eigenvalues}  
+    When the algorithm is done , \( R \) becomes approximately diagonal.
+    where each diagonal entry \( \lambda_i = R_{ii} \) is an eigenvalue of the original matrix.
+
+    \item \textbf{Compute eigenvectors} \\ 
+    The final orthogonal transformation matrix is obtained by
+    successively multiplying all rotation matrices used:
+    \[
+    V = S_1 S_2 S_3 \cdots S_k
+    \]
+    Each time we multiply the rotation orthogonal matrix with V
+   
+    The columns of \( V \) are the normalized eigenvectors corresponding
+    to the eigenvalues \( \lambda_i \).
+\end{enumerate}
+
+
+\textbf{Pseudocode of the Algorithm}
+\begin{enumerate}
+    \item \textbf{Read Input Image:}  
+    Read the grayscale image and store it as matrix \( A \) and also normalize each entry of A .  
+    
+    Extract number of rows \( r \), columns \( c \), and maximum pixel value .
+
+    \item \textbf{Compute Transpose:}  
+    Compute the transpose of the image matrix:
+
+    \item \textbf{Form Symmetric Matrix:}  
+    Construct the symmetric matrix \( A^T A \):
+    \[
+    B = A^T A
+    \]
+
+    \item \textbf{Initialize Arrays that will stor the eigen vectors:}  
+    \[
+    \vec{V} = I
+    \]
+   
+    \item \textbf{Perform Jacobi Eigenvalue Decomposition:}\\ 
+    Repeat until convergence or until the iteration limit is reached:
+    \begin{enumerate}
+        \item Find indices of maximum off diagonal element \( (p, q) \)
+        \item If max off-diagonal element is very small , stop iteration.
+        \item Compute rotation angle:
+        \[
+        \theta = \frac{1}{2} \tan^{-1}\left( \frac{2 B_{pq}}{B_{qq} - B_{pp}} \right)
+        \]
+        \item Compute cosine and sine of the angle:
+        \[
+        c = \cos(\theta), \quad s = \sin(\theta)
+        \]
+        \item Form the rotation orthogonal matrix S and then find the transformation matrix 
+        \[
+        B = S^T B S
+        \]
+        \item Update eigenvector matrix:
+        \[
+        \vec{V} = \vec{V} S
+        \]
+    \end{enumerate}
+    After convergence, the diagonal elements of \( B \) contain eigenvalues:
+
+    \item \textbf{Sort Eigenvalues and Vectors:}  
+    Sort eigenvalues \( \lambda_i \) in descending order and reorder columns of \( \vec{V} \) accordingly.
+
+    \item \textbf{Compute Singular Values:}  
+    The singular values are obtained as:
+    \[
+    \sigma_i = \sqrt{\lambda_i}
+    \]
+    forming the diagonal matrix:
+    \[
+    \Sigma = \text{diag}(\sigma_1, \sigma_2, \dots, \sigma_c)
+    \]
+
+    \item \textbf{Compute Left Singular Vectors:}  
+    Each left singular vector is computed as:
+    \[
+    \vec{u}_j = \frac{A \vec{v}_j}{\sigma_j}
+    \]
+
+    \item \textbf{Construct top k Matrix:}  
+    Using the top \( k \) singular values and vectors:
+    \[
+    A_k = \sum_{t=1}^{k} \sigma_t \, \vec{u}_t \vec{v}_t^T
+    \]
+
+    \item \textbf{Calculate Frobenius Error:}  
+
+    \[
+    F = \sqrt{ \sum_{i=1}^{r} \sum_{j=1}^{c} (A_{ij} - A_{ij}^{k})^2 }
+    \]
+
+    \item \textbf{Save Compressed Image:}  
+    Save the reconstructed image matrix \\
+
+\end{enumerate}
+
+\textbf{Comparison of Different Algorithms}
+\begin{enumerate}
+    \item \textbf{Householder Bidiagonalization and QR Algorithm} \\   
+    The algorithm first reduces the input matrix to a bidiagonal form using Householder reflections, 
+    and then applies iterative QR transformations to extract singular values and vectors.  
+    It is highly efficient but it is complex to implement manually.\\
+
+    \item \textbf{Power Iteration}  \\
+    These methods compute one eigenvalue and eigenvector at a time by iteratively applying 
+    the matrix to a random vector until convergence.  
+    power iteration is computationally slow and can miss smaller eigenvalues.\\
+
+    \item \textbf{Jacobian Method}  \\
+    The Jacobi algorithm applies a series of orthogonal rotations 
+    to eliminate off-diagonal elements of a symmetric matrix.  
+    It is simple to understand and implement, guarantees numerical stability, 
+    and always produces an orthogonal eigenvector matrix.\\
+\end{enumerate}
+
+\textbf{Why Jacobi Method was Chosen}\\
+\begin{itemize}
+    \item it is easy to implement, and conceptually easy. 
+    \item It provides a clear understanding of how eigenvalues and eigenvectors are obtained through orthogonal transformations.  
+    \item Each step involves simple arithmetic and trigonometric operations, making it simple to understand.
+\end{itemize}
+
+\newpage
+
+\textbf{Reconstructed images}\\\\
+
+\textbf{For einstein.pgm} - Original image
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{einstein.jpg}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+ \begin{enumerate}
+        \item For k=20
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{einstein20.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+    \item For k=50
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{einstein50.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+    \item For k=100
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{einstein100.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+    \item For k=180
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{einstein180.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}    
+    \end{enumerate}
+
+\textbf{For globe.pgm} - Original image
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{globe.jpg}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+ \begin{enumerate}
+        \item For k=200
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{globe200.png}
+        \caption{}
+    \end{figure}
+    \item For k=400
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{globe400.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+    \item For k=600
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{globe600.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+    \item For k=800
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{globe800.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}    
+    \end{enumerate}
+
+\textbf{For greyscale.pgm} - Original image
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{greyscale.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+ \begin{enumerate}
+        \item For k=400
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{greyscale400.png}
+        \caption{}
+    \end{figure}
+    \item For k=600
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{greyscale600.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+    \item For k=800
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{greyscale800.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}
+    \item For k=1000
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\columnwidth]{greyscale1000.png}
+        \caption{}
+        \label{fig:q39}
+    \end{figure}    
+    \end{enumerate}
+
+
+
+\textbf{Error Analysis}
+The error was calculated using the Frobenius norm:
+\[
+E_k = \| A - A_k \|_F = \sqrt{ \sum_{i,j} (A_{ij} - A_{ij}^{k})^2 }
+\]
+
+\begin{enumerate}
+
+\item For einstein.pgm
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{k value} & \textbf{Forbenius Error} \\  
+        \hline
+        5 & 20201.95 \\                              
+        \hline
+        20 & 18543.28 \\                         
+        \hline
+        50 & 15997.30 \\       
+        \hline
+        100 & 11903.16 \\       
+        \hline
+    \end{tabular}
+       \label{tab:1}
+\end{table}
+
+\item For globe.pgm
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{k value} & \textbf{Forbenius Error} \\  
+        \hline
+        5 & 154428.09 \\                              
+        \hline
+        20 & 152464.03 \\                         
+        \hline
+        50 & 148137.73 \\       
+        \hline
+        100 & 140759.91 \\       
+        \hline
+    \end{tabular}
+    \label{tab:2}
+\end{table}
+
+\item For greyscale.pgm
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{k value} & \textbf{Forbenius Error} \\  
+     \hline
+        5 & 190586.46 \\                              
+        \hline
+        20 & 188237.54 \\                         
+        \hline
+        100 & 173920.33 \\       
+        \hline
+        200 & 157032.58 \\       
+        \hline
+    \end{tabular}
+    \label{tab:3}
+\end{table}
+
+\end{enumerate}
+
+
+\textbf{Discussion and Trade-off}\\
+The $k$ controls how many singular values are retained during image reconstruction.  
+A smaller \(k\) gives higher compression but results in loss of fine details and a blurrier image.  
+A larger \(k\) preserves more detail and improves image quality, but requires more storage.  
+Thus, \(k\) balances between quality and compression efficiency.\\
+
+\textbf{Conclusion}\\
+The project successfully implemented image compression using the truncated SVD with the Jacobian method.  
+
+\end{document}
