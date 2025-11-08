@@ -1,6 +1,8 @@
 In this project, 
-I have done image compression using the Jacobi algorithm.
+I have done image compression using the Jacobian algorithm.
+
 The image is taken as a matrix where each value shows how bright a pixel is or its intensity.
+
 Using the Jacobi method, I found the singular values and vectors which help to rebuild the image in a smaller size.
 
 By keeping only a top k big singular values, the image still looks almost same but takes less space.
