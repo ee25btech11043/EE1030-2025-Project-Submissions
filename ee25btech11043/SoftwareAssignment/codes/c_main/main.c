@@ -236,7 +236,7 @@ int main() {
     int c;
     int maxp;
 
-    char *name = "einstein.pgm";
+    char *name = "/Users/nishidkhandagre/desktop/ee1030-2025/EE1030-2025-Project-Submissions/ee25btech11043/SoftwareAssignment/figs/einstein.pgm";
 
     double **A = read(name, &r, &c, &maxp);
 
